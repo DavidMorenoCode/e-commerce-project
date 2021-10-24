@@ -19,8 +19,8 @@ const completarTabla = async () => {
         <td data-form="true" data-name-field ="cedula">${cliente.cedula}</td>
         <td data-form="true" data-name-field ="email">${cliente.email}</td>
         <td data-form="true" data-name-field ="nombre">${cliente.nombre}</td>
-        <td data-form="true" data-name-field ="direccion">${cliente.alias}</td>
-        <td data-form="true" data-name-field ="telefono">${cliente.password}</td>
+        <td data-form="true" data-name-field ="direccion">${cliente.direccion}</td>
+        <td data-form="true" data-name-field ="telefono">${cliente.telefono}</td>
         <td class="contenedorBotonesAcciones">
         <i class="fas fa-pencil-alt btnActionUpdate" data-client-id="${cliente.cedula}" data-toggle="modal" data-target="#editClientModal"></i>
         <i class="fas fa-trash-alt btnActionDelete" data-client-id="${cliente.cedula}"data-toggle="modal" data-target="#deleteClientModal"></i>
@@ -143,8 +143,6 @@ const borrarCliente = async (event) =>{
 completarTabla();
 
 btnAddClient.addEventListener("click", enviarCliente);
-
-
 btnEditClient.addEventListener("click", editarCliente);
 btnDeleteClient.addEventListener("click", borrarCliente);
 
