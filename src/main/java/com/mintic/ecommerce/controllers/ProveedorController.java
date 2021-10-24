@@ -1,16 +1,12 @@
 package com.mintic.ecommerce.controllers;
 
 import com.mintic.ecommerce.dao.ProveedorDAO;
-import com.mintic.ecommerce.dao.UsuarioDAO;
 import com.mintic.ecommerce.models.Proveedor;
-import com.mintic.ecommerce.models.Usuario;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class ProveedorController {
     private final ProveedorDAO proveedorDAO;
 
