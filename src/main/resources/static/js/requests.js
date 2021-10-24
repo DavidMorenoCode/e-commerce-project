@@ -62,6 +62,71 @@ const eliminarUsuario = async (usuario_id) =>{
 }
 
 
+// Clientes
+
+
+const obtenerClientes = async () =>{
+  const path = "api/v1/clientes";
+  const data = await fetch(path, {
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+  return await data.json();
+}
+
+const obtenerCliente = async (cliente_id) =>{
+  const path = `api/v1/clientes/${cliente_id}`;
+  const data = await fetch(path,{
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+
+  console.log(data.json());
+
+  return await data.json();
+}
+
+const crearCliente = async (clientes) =>{
+  const path = "api/v1/clientes";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(clientes)
+  });
+
+  return await data.json();
+}
+
+const actualizarCliente = async (cliente_id, cliente) =>{
+  const path = `api/v1/clientes/${cliente_id}`;
+  const data = await fetch(path, {
+    method: "PUT",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cliente)
+  });
+
+  return await data.json();
+}
+
+const eliminarCliente = async (cliente_id) =>{
+  const path = `api/v1/clientes/${cliente_id}`;
+  const data = await fetch(path, {
+    method: "DELETE",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  })
+  return await data.json();
+}
+
 
 
 
@@ -72,5 +137,10 @@ export{
   obtenerUsuario,
   crearUsuario,
   actualizarUsuario,
-  eliminarUsuario
+  eliminarUsuario,
+  obtenerClientes,
+  obtenerCliente,
+  crearCliente,
+  actualizarCliente,
+  eliminarCliente,
 }

@@ -12,7 +12,7 @@ let objUsuarios = {};
 const completarTabla = async () => {
   objUsuarios = await obtenerUsuarios();
   
-  if(objUsuarios != null){
+  if(objUsuarios.length != 0){
     objUsuarios.forEach( usuario =>{
       tableBodyUsers.innerHTML += `
       <tr data-user-content-id ="${usuario.cedula}">
@@ -43,7 +43,7 @@ const completarTabla = async () => {
 
 
   }else{
-    tableBodyUsers  = `<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>`;
+    tableBodyUsers.innerHTML  = `<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No se encontraron usuarios</td></tr>`;
   }
 
   $('#dataTable').DataTable();

@@ -17,10 +17,10 @@ public class Cliente {
     @Getter @Setter @Column(name = "cedula_cliente")
     private Long cedula;
 
-    @Getter @Setter @Column(name = "email_usuario")
+    @Getter @Setter @Column(name = "email_cliente")
     private String email;
 
-    @Getter @Setter @Column(name = "nombre_usuario")
+    @Getter @Setter @Column(name = "nombre_cliente")
     private String nombre;
 
     @Getter @Setter @Column(name = "direccion_cliente")
