@@ -12656,3 +12656,18 @@ body.sidebar-toggled footer.sticky-footer {
   color: red;
   font-weight: 800;
 }
+
+
+.btnBuscar{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.groupProduct{
+  margin-top: 2rem;
+}
+
+.groupProduct.top{
+  margin-top: 4rem;
+}
