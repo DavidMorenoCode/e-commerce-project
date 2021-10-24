@@ -12617,6 +12617,8 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%
 }
 
+/* Estilos Usuarios */
+
 
 .btnAddUser{
   font-size: 2.5rem;
@@ -12630,4 +12632,27 @@ body.sidebar-toggled footer.sticky-footer {
 
 #addUserModal .modal-dialog{
   max-width: 50%;
+}
+#editUserModal .modal-dialog{
+  max-width: 50%;
+}
+
+
+/* Estilos Tablas  */
+
+
+.contenedorBotonesAcciones{
+  display:flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+
+.contenedorBotonesAcciones i:hover {
+  cursor: pointer;
+  color: #1cc88a;
+}
+
+#spanCedula{
+  color: red;
+  font-weight: 800;
 }

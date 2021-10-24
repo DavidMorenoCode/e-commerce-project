@@ -50,7 +50,7 @@ const actualizarUsuario = async (usuario_id, usuario) =>{
   return await data.json();
 }
 
-const eliminarUsuario = async () =>{
+const eliminarUsuario = async (usuario_id) =>{
   const path = `api/v1/usuarios/${usuario_id}`;
   const data = await fetch(path, {
     method: "DELETE",

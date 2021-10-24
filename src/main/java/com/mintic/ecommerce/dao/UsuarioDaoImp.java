@@ -44,7 +44,7 @@ public class UsuarioDaoImp implements  UsuarioDAO{
             entityManager.merge(usuario);
             return true;
         }catch (Exception e){
-            System.out.println("Error al actualizar el usaurio: " + e);
+            System.out.println("Error al actualizar el usuario: " + e);
             return false;
         }
     }

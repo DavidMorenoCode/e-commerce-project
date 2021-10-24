@@ -2,7 +2,6 @@ package com.mintic.ecommerce.controllers;
 
 import com.mintic.ecommerce.dao.UsuarioDAO;
 import com.mintic.ecommerce.models.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
