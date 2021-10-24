@@ -90,14 +90,14 @@ const obtenerCliente = async (cliente_id) =>{
   return await data.json();
 }
 
-const crearCliente = async (clientes) =>{
+const crearCliente = async (cliente) =>{
   const path = "api/v1/clientes";
   const data = await fetch(path, {
     method: "POST",
     headers:{
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(clientes)
+    body: JSON.stringify(cliente)
   });
 
   return await data.json();
@@ -128,7 +128,69 @@ const eliminarCliente = async (cliente_id) =>{
 }
 
 
+// Proveedores
 
+const obtenerProveedores = async () =>{
+  const path = "api/v1/proveedores";
+  const data = await fetch(path, {
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+  return await data.json();
+}
+
+const obtenerProveedor = async (proveedor_id) =>{
+  const path = `api/v1/proveedores/${proveedor_id}`;
+  const data = await fetch(path,{
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+
+  console.log(data.json());
+
+  return await data.json();
+}
+
+const crearProveedor = async (proveedor) =>{
+  const path = "api/v1/proveedores";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(proveedor)
+  });
+
+  return await data.json();
+}
+
+const actualizarProveedor = async (proveedor_id, proveedor) =>{
+  const path = `api/v1/proveedores/${proveedor_id}`;
+  const data = await fetch(path, {
+    method: "PUT",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(proveedor)
+  });
+
+  return await data.json();
+}
+
+const eliminarProveedor = async (proveedor_id) =>{
+  const path = `api/v1/proveedores/${proveedor_id}`;
+  const data = await fetch(path, {
+    method: "DELETE",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  })
+  return await data.json();
+}
 
 
 
@@ -143,4 +205,9 @@ export{
   crearCliente,
   actualizarCliente,
   eliminarCliente,
+  obtenerProveedores,
+  obtenerProveedor,
+  crearProveedor,
+  actualizarProveedor,
+  eliminarProveedor,
 }
