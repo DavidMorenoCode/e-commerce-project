@@ -296,6 +296,22 @@ const crearDetalleVenta = async (DetalleVenta) =>{
 }
 
 
+// Login
+
+
+const login = async (usuario) =>{
+  const path = "api/v1/login";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(usuario)
+  });
+
+  return await data.json();
+}
+
 
 
 export{
@@ -321,5 +337,6 @@ export{
   eliminarProducto,
   crearVenta,
   obtenerDetalleVentas,
-  crearDetalleVenta
+  crearDetalleVenta,
+  login
 }

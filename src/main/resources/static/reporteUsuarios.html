@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Reporte de Usuarios - FruverApp">
+    <meta name="author" content="David Moreno">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>FruverApp - Reporte Usuarios</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index-.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-apple-alt"></i>
                 </div>
@@ -56,28 +56,35 @@
             <!-- Nav Item - Usuarios -->
             <li class="nav-item active">
                 <a class="nav-link" href="usuarios.html">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-users"></i>
                     <span>Usuarios</span></a>
             </li>
 
             <!-- Nav Item - Clientes -->
             <li class="nav-item active">
                 <a class="nav-link" href="clientes.html">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-coins"></i>
                     <span>Clientes</span></a>
             </li>
 
             <!-- Nav Item - Proveedores -->
             <li class="nav-item active">
                 <a class="nav-link" href="proveedores.html">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-truck-moving"></i>
                     <span>Proveedores</span></a>
+            </li>
+
+            <!-- Nav Item - Productos -->
+            <li class="nav-item active">
+                <a class="nav-link" href="productos.html">
+                    <i class="fas fa-apple-alt"></i>
+                    <span>Productos</span></a>
             </li>
 
             <!-- Nav Item - Ventas -->
             <li class="nav-item active">
                 <a class="nav-link" href="ventas.html">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-box-open"></i>
                     <span>Ventas</span></a>
             </li>
 
@@ -103,20 +110,8 @@
                     <span>Reporte Clientes</span></a>
             </li>
 
-            <!-- Nav Item - Reporte Proveedores -->
-            <li class="nav-item active">
-                <a class="nav-link" href="reporteClientes.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Reporte Proveedores</span></a>
-            </li>
-
-            <!-- Nav Item - Reporte Proveedores -->
-            <li class="nav-item active">
-                <a class="nav-link" href="reporteClientes.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Reporte Productos</span></a>
-            </li>
-
+                       
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -203,47 +198,27 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
-                    <p class="mb-4">En esta sección prodra administrar los usuarios registrados en FRUVERAPP</p>
+                    <h1 class="h3 mb-2 text-gray-800">Reporte Usuarios</h1>
+                    <p class="mb-4">En esta sección prodra visualizar los usuarios registrados en FRUVERAPP</p>
 
-                    <!-- DataTales Example -->
+                    <!-- Table Users -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Gestión de Usuarios</h6>
-                            <i class="fas fa-plus-circle"></i>
+                            <h6 class="m-0 font-weight-bold text-primary">Reporte de Usuarios</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Cedula</th>
+                                            <th>Cédula</th>
                                             <th>Email</th>
                                             <th>Nombre</th>
                                             <th>Usuario</th>
                                             <th>Contraseña</th>
-                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Cedula</th>
-                                            <th>Email</th>
-                                            <th>Nombre</th>
-                                            <th>Usuario</th>
-                                            <th>Contraseña</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>                                        
+                                    <tbody id="tableBodyUsers">
                                     </tbody>
                                 </table>
                             </div>
@@ -260,7 +235,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; FruverApp - Minsión TIC 2021</span>
                     </div>
                 </div>
             </footer>
@@ -297,6 +272,165 @@
         </div>
     </div>
 
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+                <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Datos del usuario:</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="number" class="form-control form-control-user" id="inputCedula"
+                                                        placeholder="Cédula">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="inputNombre"
+                                                        placeholder="Nombre">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" id="inputEmail"
+                                                    placeholder="Email">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user"
+                                                        id="inputUsuario" placeholder="Usuario">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control form-control-user"
+                                                        id="inputPassword" placeholder="Contraseña">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnAddUser">Añadir</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Datos del usuario:</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="number" disabled class="form-control form-control-user" id="inputEditCedula">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditNombre">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" id="inputEditEmail">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditUsuario">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditPassword">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnEditUser">Actualizar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete User Modal -->
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">¡Importante!</h1>
+                                            <p>¿Desea eliminar el usuario con el número de cédula: <span id="spanCedula"></span>?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btnDeleteUser">Eliminar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -312,7 +446,7 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script type = "module" src="js/reporteUsuarios.js"></script>
 
 </body>
 

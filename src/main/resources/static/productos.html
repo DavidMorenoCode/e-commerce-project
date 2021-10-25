@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Gestion de Clientes - FruverApp">
+    <meta name="description" content="Gestion de Productos - FruverApp">
     <meta name="author" content="David Moreno">
 
-    <title>FruverApp - Reportes Clientes</title>
+    <title>FruverApp - Productos</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -110,6 +110,7 @@
                     <span>Reporte Clientes</span></a>
             </li>
 
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -197,27 +198,30 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
-                    <p class="mb-4">En esta sección prodra visualizar los clientes registrados en FRUVERAPP</p>
+                    <h1 class="h3 mb-2 text-gray-800">Productos</h1>
+                    <p class="mb-4">En esta sección prodrá administrar los productos registrados en FRUVERAPP</p>
 
                     <!-- Table Users -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Reporte de Clientes</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Gestión de Productos</h6>
+                            <i class="fas fa-user-plus btnAddUser"  data-toggle="modal" data-target="#addProductModal" id="btnOpenModalProductos"></i>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Cédula</th>
-                                            <th>Email</th>
+                                            <th>Código</th>
                                             <th>Nombre</th>
-                                            <th>Dirección</th>
-                                            <th>Teléfono</th>
+                                            <th>IVA</th>
+                                            <th>Precio Compra</th>
+                                            <th>Precio Venta</th>
+                                            <th>NIT</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tableBodyClients">
+                                    <tbody id="tableBodyProducts">
                                     </tbody>
                                 </table>
                             </div>
@@ -272,11 +276,11 @@
     </div>
 
     <!-- Add Clients Modal -->
-    <div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cliente</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Crear Producto</h5>
                 <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -290,31 +294,37 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Datos del cliente:</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Datos del producto:</h1>
                                         </div>
                                         <form class="user">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="number" class="form-control form-control-user" id="inputCedula"
-                                                        placeholder="Cédula">
+                                                    <input type="number" class="form-control form-control-user" id="inputCodigo"
+                                                        placeholder="Código">
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <input type="text" class="form-control form-control-user" id="inputNombre"
                                                         placeholder="Nombre">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="inputEmail"
-                                                    placeholder="Email">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" class="form-control form-control-user" id="inputIva"
+                                                    placeholder="IVA">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="number" class="form-control form-control-user"
+                                                        id="inputNit" placeholder="NIT proveedor">
+                                                </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                                     <input type="text" class="form-control form-control-user"
-                                                        id="inputDireccion" placeholder="Dirección">
+                                                        id="inputVenta" placeholder="Precio venta">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="number" class="form-control form-control-user"
-                                                        id="inputTelefono" placeholder="Teléfono">
+                                                    <input type="text" class="form-control form-control-user"
+                                                        id="inputCompra" placeholder="Precio Compra">
                                                 </div>
                                             </div>
                                         </form>
@@ -328,18 +338,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnAddClient">Añadir</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnAddProduct">Añadir</button>
             </div>
             </div>
         </div>
     </div>
 
     <!-- Edit Client Modal -->
-    <div class="modal fade" id="editClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
                 <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -353,26 +363,31 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Datos del cliente:</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Datos del Producto:</h1>
                                         </div>
                                         <form class="user">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="number" disabled class="form-control form-control-user" id="inputEditCedula">
+                                                    <input type="number" disabled class="form-control form-control-user" id="inputEditCodigo">
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <input type="text" class="form-control form-control-user" id="inputEditNombre">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="inputEditEmail">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditIva">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditCompra">
+                                                </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="inputEditDireccion">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditVenta">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control form-control-user" id="inputEditTelefono">
+                                                    <input type="text" class="form-control form-control-user" id="inputEditNit">
                                                 </div>
                                             </div>
                                         </form>
@@ -386,18 +401,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnEditClient">Actualizar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnEditProduct">Actualizar</button>
             </div>
             </div>
         </div>
     </div>
 
     <!-- Delete Client Modal -->
-    <div class="modal fade" id="deleteClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar cliente</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
                 <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -412,7 +427,7 @@
                                     <div class="p-5">
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">¡Importante!</h1>
-                                            <p>¿Desea eliminar el cliente con el número de cédula: <span id="spanCedula"></span>?</p>
+                                            <p>¿Desea eliminar el Producto con el código: <span id="spanCedula"></span>?</p>
                                         </div>
                                     </div>
                                 </div>
@@ -424,7 +439,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btnDeleteClient">Eliminar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btnDeleteProduct">Eliminar</button>
             </div>
             </div>
         </div>
@@ -445,7 +460,7 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script type = "module" src="js/reporteClientes.js"></script>
+    <script type = "module" src="js/productos.js"></script>
 
 </body>
 
