@@ -85,8 +85,6 @@ const obtenerCliente = async (cliente_id) =>{
     }
   });
 
-  console.log(data.json());
-
   return await data.json();
 }
 
@@ -193,6 +191,112 @@ const eliminarProveedor = async (proveedor_id) =>{
 }
 
 
+// Productos
+
+const obtenerProductos = async () =>{
+  const path = "api/v1/productos";
+  const data = await fetch(path, {
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+  return await data.json();
+}
+
+const obtenerProducto = async (producto_id) =>{
+  const path = `api/v1/productos/${producto_id}`;
+  const data = await fetch(path,{
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+
+  return await data.json();
+}
+
+const crearProducto = async (producto) =>{
+  const path = "api/v1/productos";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(producto)
+  });
+
+  return await data.json();
+}
+
+const actualizarProducto = async (producto_id, producto) =>{
+  const path = `api/v1/productos/${producto_id}`;
+  const data = await fetch(path, {
+    method: "PUT",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(producto)
+  });
+
+  return await data.json();
+}
+
+const eliminarProducto = async (producto_id) =>{
+  const path = `api/v1/productos/${producto_id}`;
+  const data = await fetch(path, {
+    method: "DELETE",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  })
+  return await data.json();
+}
+
+// Ventas
+
+const crearVenta = async (venta) =>{
+  const path = "api/v1/ventas";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(venta)
+  });
+
+  return await data.json();
+}
+
+
+// DetalleVentas
+
+const obtenerDetalleVentas = async () =>{
+  const path = "api/v1/detalleVentas";
+  const data = await fetch(path, {
+    method: "GET",
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+  return await data.json();
+}
+
+const crearDetalleVenta = async (DetalleVenta) =>{
+  const path = "api/v1/detalleVentas";
+  const data = await fetch(path, {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(DetalleVenta)
+  });
+
+  return await data.json();
+}
+
+
+
 
 export{
   obtenerUsuarios,
@@ -210,4 +314,12 @@ export{
   crearProveedor,
   actualizarProveedor,
   eliminarProveedor,
+  obtenerProductos,
+  obtenerProducto,
+  crearProducto,
+  actualizarProducto,
+  eliminarProducto,
+  crearVenta,
+  obtenerDetalleVentas,
+  crearDetalleVenta
 }

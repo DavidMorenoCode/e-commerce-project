@@ -23,8 +23,14 @@ public class ClienteDaoImp implements ClienteDAO{
 
     @Override
     public Cliente obtenerClientePorId(Long id) {
+
         Cliente cliente = entityManager.find(Cliente.class, id);
-        return cliente;
+
+        if(cliente.getCedula() != null){
+            return cliente;
+        }else{
+            return null;
+        }
     }
 
     @Override

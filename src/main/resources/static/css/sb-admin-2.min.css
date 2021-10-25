@@ -12671,3 +12671,21 @@ body.sidebar-toggled footer.sticky-footer {
 .groupProduct.top{
   margin-top: 4rem;
 }
+
+.spanMensaje{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  margin-top: 2rem;
+}
+
+.hidden{
+  display:none
+}
+
+.btnBuscar.disabled{
+  background: #5a5c69;
+  cursor: not-allowed;
+  border-color: #5a5c69;
+}
